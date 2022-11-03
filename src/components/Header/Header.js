@@ -1,22 +1,32 @@
-import React from "react";
 import "./header.scss";
-import { ReactComponent as logo } from "../../assets/images/Logo/BrainFlix.svg";
-import { ReactComponent as upload } from "../../assets/images/Icons/upload.svg";
+import Logo from "../../assets/images/Logo/BrainFlix-logo.svg";
+import Upload from "../../assets/images/Icons/upload.svg";
+import Search from "../../assets/images/Icons/search.svg";
+import Avatar from "../../assets/images/Mohan-muruge.jpg";
 
-function Header() {
+export default function Header() {
   return (
     <header className="header">
-      <div className="header__company-name">
-        <logo />
+      <div className="header__logo">
+        <img src={Logo} alt="Logo" />
       </div>
 
-      <input className="header__search"></input>
       <div className="header__search">
-        <img src={upload} alt="upload" />
-        <a href="#upload">UPLOAD</a>
+        <img src={Search} alt="Search" />
+        <input placeholder="Search" />
+      </div>
+
+      <div className="header__avatar">
+        <img src={Avatar} alt="man" className="header__avatar-image" />
+      </div>
+
+      <div className="header__upload">
+        <img src={Upload} alt="arrowUp" />
+
+        <a href="#upload" className="header__upload-link">
+          Upload
+        </a>
       </div>
     </header>
   );
 }
-
-export default Header;

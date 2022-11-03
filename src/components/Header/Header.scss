@@ -1,2 +1,28 @@
 @use "../../styles/partials/braikpoints.scss" as *;
 @use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts.scss" as *;
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: $before-headlines-mobile;
+    padding-bottom: $after-headlines-mobile;
+
+&__upload{
+    background: $primary-blue;
+    width: 6.25rem;
+}
+
+&__avatar-image {
+    height: 2.25rem;
+    width: 2.25rem;
+    border-radius: 50%;
+    background: $secondary-silver;
+
+
+}
+}
