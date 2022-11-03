@@ -11,7 +11,7 @@ import getVideos, {
 import SideBar from "./components/sideBar/Sidebar";
 import VideoDetails from "./components/VideoDetails/VideoDetails";
 import Comments from "./components/Comments/Comments";
-// import Header from "./components/Header/Header";
+import Header from "./components/Header/Header";
 
 // function
 
@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       {/* <body className="container"> */}
-      {/* <Header /> */}
+      <Header />
       {/* <VideoBanner /> */}
       <section className="container-left">
         <VideoDetails videoPlayer={videoDetails} />
