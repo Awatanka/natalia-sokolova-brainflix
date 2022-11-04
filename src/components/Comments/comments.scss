@@ -1,0 +1,163 @@
+// @use "../../styles/breakpoints.scss" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/breakpoints.scss" as *;
+
+
+
+.comments{
+    color: $primary-black;
+    padding: 1rem;
+
+    
+
+    &__item {
+        border-bottom: 1px solid $secondary-silver;
+        display: flex;
+
+        &-image {
+                width: 36px;
+                height: 36px;
+                border: 1px solid $secondary-silver;
+                margin-left: 5px;
+                top: 5px;
+                border-radius: 50%;
+                background: $secondary-silver;
+        
+                @include medium {
+                    width: 48px;
+                    height: 48px;
+                }
+        
+        
+            }
+
+    
+    &-left {
+        width: 20%;
+        padding: 1rem;
+    }
+    &-right {
+        display: flex;
+        justify-content: center;
+    }
+    
+    &-name, &-date{
+        display: inline-block;
+    }
+    &-text{
+        display: block;
+        width: 100%;
+    }
+
+    }
+}
+
+
+.form {
+    display: flex;
+    width: 90%;
+    font-family: "Avenir";
+    margin: 0 auto;
+    justify-content: center;
+
+   
+
+
+    &__left {
+        width: fit-content;
+        display: inline-block;
+        padding: 0.7rem;
+        justify-content: center;
+
+    }
+
+    &__right {
+        width: 80%;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__img {
+        width: 2.25rem;
+        height: 2.25rem;
+        border: 1px solid white;
+        margin-left: .3125rem;
+        position: relative;
+        border-radius: 50%;
+        margin-top: 1.875rem;
+
+        // @include breakpoints.medium {
+        //     width: 3rem;
+        //     height: 3rem;
+        //     margin-top: 1.875rem;
+        // }
+    }
+
+    &__label {
+        font-weight: 600;
+        margin: 1rem 0 1rem 0;
+        line-height: 1.5;
+
+        // @include breakpoints.medium {
+        //     font-size: 1.5rem;
+        //     line-height: 2rem;
+        // }
+    }
+
+    &__name--item {
+        height: 2.5rem;
+        box-shadow: none;
+        border-radius: 5px;
+        width: 100%;
+        margin: 0 auto;
+
+        &:focus {
+            border: 1px solid
+        }
+    }
+
+    &__textarea--item {
+        height: 10rem;
+        box-shadow: none;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid ;
+        font-family: "Avenir";
+
+    }
+
+    &__textarea--item:focus {
+        border: 1px solid;
+    }
+
+    &__button {
+        height: 4.375rem;
+        align-items: center;
+        margin: 0.5rem 0 0.5rem 0;
+    }
+
+    &__button--btn {
+        height: 2.5rem;
+        width: 100%;
+        display: block;
+        border-radius: .3125rem;
+        font-family: "Avenir";
+        font-weight: 700;
+        font-size: .625rem;
+        line-height: 1.25rem;
+        border: none;
+        align-items: center;
+        cursor: pointer;
+
+        // @include breakpoints.medium {
+        //     font-size: .75rem;
+        //     line-height: 1.25rem;
+        // }
+
+    }
+
+  
+
+}

@@ -1,0 +1,14 @@
+@use "../../styles/partials/breakpoints.scss" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts.scss" as *;
+
+.details{
+    padding: 1rem;
+&__top {
+    
+    border-bottom: 1px solid $secondary-silver;
+    &-chanel {
+        font-weight: 900;
+    }
+}
+}
