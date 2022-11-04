@@ -1,10 +1,11 @@
 import "./videoBanner.scss";
-import Video from "../../assets/images/Icons/fullscreen.svg";
 
-function VideoBanner() {
+function VideoBanner({ videoBanner, videoPoster }) {
   return (
     <div className="videoBanner">
-      <video src={Video}></video>
+      <video controls className="videoBanner__video" poster={videoPoster}>
+        <source src={videoBanner} type="video/mp4" />
+      </video>
     </div>
   );
 }

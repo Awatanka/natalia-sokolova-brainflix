@@ -1,16 +1,26 @@
-@use "../../styles/partials/braikpoints.scss" as *;
+@use "../../styles/partials/breakpoints.scss" as *;
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/fonts.scss" as *;
 
 
 .header {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding-top: $before-headlines-mobile;
     padding-bottom: $after-headlines-mobile;
+    margin: 0 auto;
+    width: 100%;
+
+    @include medium {
+        flex-direction: row;
+    }
+
+&__logo{
+    height: 1.5625rem;
+    width: 7.5rem;
+}
 
 &__upload{
     background: $primary-blue;
@@ -21,8 +31,56 @@
     height: 2.25rem;
     width: 2.25rem;
     border-radius: 50%;
-    background: $secondary-silver;
+    margin: 0 1rem 0 1rem;
+    background: $secondary-white;
 
 
+}
+
+&__search {
+    width: 100%;
+    position: relative;
+    color: $secondary-black;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 1rem;
+   
+
+&-placeholder{
+    height: 2.5rem;
+    width: 80%;
+    border-radius: .25rem;
+    padding: 0.5rem;
+    background: $secondary-white; 
+    border: 1px solid $secondary-silver;
+    
+}
+&-image{
+    width: 1.5625rem;
+    left: -0.625rem;
+}
+}
+
+&__upload{
+    width: 90%;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border-radius: .3125rem;
+    color: $primary-white;
+    display: flex;
+    flex-direction: row;
+
+    &-link {
+    font-size: .75rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
+    color: $primary-white;
+}
+&-image {
+    width: 1.5625rem;
+}
 }
 }

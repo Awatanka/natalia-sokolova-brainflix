@@ -1,5 +1,6 @@
-@use "../styles/partials/fonts.scss" as *;
-
+@use "../src/styles/partials/fonts.scss" as *;
+@use "./styles/partials/breakpoints.scss" as *;
+@use "./styles/partials/colors.scss" as *;
 html,
 body {
   margin: 0;
@@ -7,6 +8,7 @@ body {
   line-height: 1.8rem;
   height: 100vh;
   box-sizing: border-box;
+  color: $primary-black;
 }
 
 *,
