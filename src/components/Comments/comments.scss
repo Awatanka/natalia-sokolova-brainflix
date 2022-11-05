@@ -7,10 +7,33 @@
 
 .comments{
     color: $primary-black;
-    padding: 1rem;
+    padding: 0 1rem;
+    font-weight: 400;
+        font-size: .8125rem;
+        line-height: 1.125rem;
 
-    
+    @include medium {
+            padding: 0 2rem;
+            margin-left: 5rem;
+            margin-right: 5rem;
+            font-size: .875rem;
+            line-height: 1.375rem;
+        }
 
+  &__form {
+
+  width: 100%;
+  
+  &-title{
+    font-size: .8125rem;
+        line-height: 1.125rem;
+        font-weight: 700;
+    @include medium {
+    font-size: .875rem;
+        line-height: 1.375rem;
+    }
+  }  
+  }
     &__item {
         border-bottom: 1px solid $secondary-silver;
         display: flex;
@@ -56,86 +79,108 @@
 
 .form {
     display: flex;
-    width: 90%;
+    width: 100%;
     font-family: "Avenir";
     margin: 0 auto;
     justify-content: center;
 
-   
-
-
     &__left {
-        width: fit-content;
+        width: 20%;
         display: inline-block;
-        padding: 0.7rem;
-        justify-content: center;
+        padding: 1rem;
 
     }
 
     &__right {
-        width: 80%;
+        width: 100%;
         margin-left: 0;
         display: flex;
         flex-direction: column;
+
+        @include medium {
+           flex-direction: row;
+           align-items: center;
+           flex-wrap: wrap;
+
+        }
     }
 
     &__img {
         width: 2.25rem;
         height: 2.25rem;
-        border: 1px solid white;
         margin-left: .3125rem;
         position: relative;
         border-radius: 50%;
-        margin-top: 1.875rem;
+        margin-top: 0.5rem;
 
-        // @include breakpoints.medium {
-        //     width: 3rem;
-        //     height: 3rem;
-        //     margin-top: 1.875rem;
-        // }
+        @include medium {
+            width: 3rem;
+            height: 3rem;
+            margin-top: 1rem;
+        }
     }
 
     &__label {
         font-weight: 600;
-        margin: 1rem 0 1rem 0;
         line-height: 1.5;
-
-        // @include breakpoints.medium {
-        //     font-size: 1.5rem;
-        //     line-height: 2rem;
-        // }
-    }
-
-    &__name--item {
-        height: 2.5rem;
-        box-shadow: none;
-        border-radius: 5px;
         width: 100%;
-        margin: 0 auto;
+        text-transform: uppercase;
+        color: $primary-silver;
+        padding-bottom: $after-headlines-mobile;
 
-        &:focus {
-            border: 1px solid
+
+        @include medium {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            padding-bottom: $after-headlines-desktop;
         }
     }
 
-    &__textarea--item {
+
+    &__textarea {
+    width: 100%;
+    height: 10rem;
+
+    @include medium {
+        height: 3.75rem;
+            width: 70%;
+
+    }
+
+    &--item {
         height: 10rem;
         box-shadow: none;
         width: 100%;
         border-radius: 5px;
-        border: 1px solid ;
+        border: 1px solid $secondary-silver;
         font-family: "Avenir";
+        background: $secondary-white;
+        color: $secondary-black;
+        font-weight: 400;
+            font-size: .8125rem;
+            line-height: 1.125rem;
+            padding: 1rem;
 
+@include medium {
+    padding: 0.5rem;
+    width: 95%;
+height: 40px;
+display: inline;
+}
     }
-
-    &__textarea--item:focus {
-        border: 1px solid;
+    &--item:focus {
+        border: 2px solid $secondary-blue;
     }
-
+}
     &__button {
         height: 4.375rem;
-        align-items: center;
         margin: 0.5rem 0 0.5rem 0;
+        height: 60px;
+
+        @include medium {
+align-items: center;
+        }
+        
     }
 
     &__button--btn {
@@ -148,13 +193,18 @@
         font-size: .625rem;
         line-height: 1.25rem;
         border: none;
+        color: $primary-white;
+        font-size: 1rem;
+        background: $primary-blue;
         align-items: center;
         cursor: pointer;
+        height: 2.5rem;
 
-        // @include breakpoints.medium {
-        //     font-size: .75rem;
-        //     line-height: 1.25rem;
-        // }
+        @include medium {
+            font-size: 1rem;
+            line-height: 1.25rem;
+            width: 150px;
+        }
 
     }
 

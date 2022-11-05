@@ -1,4 +1,5 @@
 import "./comments.scss";
+import Avatar from "../../assets/images/Mohan-muruge.jpg";
 
 export default function Comments({ comments }) {
   function convertData(myDate) {
@@ -12,23 +13,22 @@ export default function Comments({ comments }) {
 
         <div className="form">
           <div className="form__left">
-            <img alt="man" className="form__img" />
+            <img alt="man" src={Avatar} className="form__img" />
           </div>
 
           <form id="myForm" action="" className="form__right" method="post">
+            <label htmlFor="userComment" className="form__label">
+              Join the Conversation
+            </label>
             <div className="form__textarea">
-              <label htmlFor="userComment" className="form__label">
-                Join the Conversation
-              </label>
               <textarea
                 id="userComment"
                 name="userComment"
                 type="text"
                 className="form__textarea--item"
-                placeholder="Enter your comment"
+                placeholder="Add a new comment"
               ></textarea>
             </div>
-
             <div className="form__button">
               <button
                 id="submit"
@@ -56,9 +56,8 @@ export default function Comments({ comments }) {
                 <p className="comments__item-date">
                   {convertData(comments.timestamp)}
                 </p>
-
-                <p className="comments__item-text">{comments.comment}</p>
               </div>
+              <p className="comments__item-text">{comments.comment}</p>
             </section>
           ))}
         </section>

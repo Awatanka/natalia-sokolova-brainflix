@@ -1,15 +1,11 @@
 import "./App.scss";
+
 import { useState } from "react";
-import getVideos, {
-  getFirstVideoId,
-  getVideoDetails,
-  convertDate,
-} from "./components/utils/utils";
+import getVideos, { getVideoDetails } from "./components/utils/utils";
 // stracture components
 
-// import VideoBanner from "./components/VideoBanner/VideoBanner";
 import SideBar from "./components/sideBar/Sidebar";
-import VideoDetails from "./components/VideoDetails/VideoDetails";
+import VideoDetail from "./components/VideoDetails/VideoDetail";
 import Comments from "./components/Comments/Comments";
 import Header from "./components/Header/Header";
 import VideoBanner from "./components/VideoBanner/VideoBanner";
@@ -17,22 +13,19 @@ import VideoBanner from "./components/VideoBanner/VideoBanner";
 // function
 
 function App() {
-  const randomId = getFirstVideoId()[0];
-  const [videoId, setVideoId] = useState(randomId);
+  // const randomId = (videoId) => getFirstVideoId()[0];
+  // const [videoId, setVideoId] = useState(randomId);
+
+  const [videoId, setVidId] = useState(5); ////////
   const [videos, setVideos] = useState(getVideos(videoId));
   const [videoDetails, setVideoDetails] = useState(getVideoDetails(videoId));
 
   const handleClick = (event, videoId) => {
     event.preventDefault();
-    setVideoId(videoId);
+    setVidId(videoId);
     setVideos(getVideos(videoId));
     setVideoDetails(getVideoDetails(videoId));
   };
-
-  function convertData(myDate) {
-    let date = new Date(myDate).toLocaleDateString("en-GB");
-    return date;
-  }
 
   return (
     <>
@@ -41,13 +34,15 @@ function App() {
         videoBanner={videoDetails.video}
         videoPoster={videoDetails.image}
       />
-      {/* <VideoBanner/> */}
-      <section className="container-left">
-        <VideoDetails videoPlayer={videoDetails} />
+      <section className="main">
+        <section className="main__left">
+          <VideoDetail videoPlayer={videoDetails} />
+          <Comments comments={videoDetails.comments} />
+        </section>
+        <section className="main__right">
+          <SideBar videos={videos} onVideoClick={handleClick} />
+        </section>
       </section>
-      <Comments comments={videoDetails.comments} />
-
-      <SideBar videos={videos} onVideoClick={handleClick} />
     </>
   );
 }
