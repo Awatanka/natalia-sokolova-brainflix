@@ -23,26 +23,29 @@ body {
 .main {
   display: flex;
   flex-direction: column;
-  @include medium {
+  
+@include medium {
     flex-direction: row;
 
   }
 &__left {
   @include medium {
     display: inline;
-    width: 70%;
+    width: 80%;
+    margin: 0;
 }
 
 &__right { 
+  
 @include medium {
     display: inline;
     width: 30%;
+    margin: 0;
   }
 }
-}
 
 }
-
+}
 
 
 
