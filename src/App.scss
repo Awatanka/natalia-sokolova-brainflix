@@ -16,7 +16,7 @@ body {
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 
@@ -36,7 +36,7 @@ body {
 }
 
 &__right { 
-  
+
 @include medium {
     display: inline;
     width: 30%;
