@@ -6,7 +6,8 @@ const getVideos = (videoId) => {
 };
 
 export const getVideoDetails = (videoId) => {
-  return videoDetails.find((vid) => vid.id !== videoId);
+  console.log(videoDetails);
+  return videoDetails.find((vid) => vid.id === videoId);
 };
 
 // export const getFirstVideoId = () => {

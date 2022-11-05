@@ -16,13 +16,15 @@ function App() {
   // const randomId = (videoId) => getFirstVideoId()[0];
   // const [videoId, setVideoId] = useState(randomId);
 
-  const [videoId, setVidId] = useState(5); ////////
+  const [videoId, setVideoId] = useState(
+    "84e96018-4022-434e-80bf-000ce4cd12b8"
+  ); ////////
   const [videos, setVideos] = useState(getVideos(videoId));
   const [videoDetails, setVideoDetails] = useState(getVideoDetails(videoId));
 
   const handleClick = (event, videoId) => {
     event.preventDefault();
-    setVidId(videoId);
+    setVideoId(videoId);
     setVideos(getVideos(videoId));
     setVideoDetails(getVideoDetails(videoId));
   };
