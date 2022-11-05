@@ -1,10 +1,10 @@
 import "./videoBanner.scss";
 
-function VideoBanner({ videoBanner, videoPoster }) {
+function VideoBanner({ videoPoster }) {
   return (
     <div className="videoBanner">
       <video controls className="videoBanner__video" poster={videoPoster}>
-        <source src={videoBanner} type="video/mp4" />
+        <source src="#" type="video/mp4" />
       </video>
     </div>
   );
