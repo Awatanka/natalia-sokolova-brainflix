@@ -1,8 +1,10 @@
+import { startTransition } from "react";
 import "./sideBar.scss";
 
 export default function SideBar({ videos, onVideoClick }) {
   return (
     <aside className="sidebar">
+      <h3 className="sidebar-header"> NEXT VIDEO</h3>
       {videos.map((video) => (
         <div>
           <div className="sidebar-content">
