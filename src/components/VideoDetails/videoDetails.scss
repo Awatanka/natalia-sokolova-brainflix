@@ -6,8 +6,13 @@
     padding: 0 1rem ;
 
     @include medium {
-        margin-left: 5rem;
-        margin-right: 5rem;
+            padding: 0 2rem;
+    
+        }
+
+    @include large {
+        padding: 0 5rem;
+        
     }
 
 

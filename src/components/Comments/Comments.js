@@ -1,5 +1,6 @@
 import "./comments.scss";
 import Avatar from "../../assets/images/Mohan-muruge.jpg";
+import Comment from "../../assets/images/Icons/add_comment.svg";
 
 export default function Comments({ comments }) {
   function convertData(myDate) {
@@ -25,17 +26,17 @@ export default function Comments({ comments }) {
                 id="userComment"
                 name="userComment"
                 type="text"
-                className="form__textarea--item"
+                className="form__textarea-item"
                 placeholder="Add a new comment"
               ></textarea>
-            </div>
-            <div className="form__button">
+
               <button
                 id="submit"
                 type="submit"
                 name="submit"
-                className="form__button--btn"
+                className="form__button-btn"
               >
+                <img src={Comment} alt="plus" className="form__button-img" />
                 COMMENT
               </button>
             </div>
@@ -52,12 +53,14 @@ export default function Comments({ comments }) {
               </div>
 
               <div className="comments__item-right">
-                <h3 className="comments__item-name">{comments.name}</h3>
-                <p className="comments__item-date">
-                  {convertData(comments.timestamp)}
-                </p>
+                <div className="comments__item-top">
+                  <h3 className="comments__item-name">{comments.name}</h3>
+                  <p className="comments__item-date">
+                    {convertData(comments.timestamp)}
+                  </p>
+                </div>
+                <p className="comments__item-text">{comments.comment}</p>
               </div>
-              <p className="comments__item-text">{comments.comment}</p>
             </section>
           ))}
         </section>
