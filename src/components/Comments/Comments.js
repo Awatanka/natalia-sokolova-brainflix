@@ -1,7 +1,6 @@
 import "./comments.scss";
 import Avatar from "../../assets/images/Mohan-muruge.jpg";
 import Comment from "../../assets/images/Icons/add_comment.svg";
-// import moment from "moment";
 
 export default function Comments({ comments }) {
   function convertData(myDate) {
