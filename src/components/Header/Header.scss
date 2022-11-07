@@ -35,8 +35,10 @@
 
     @include medium {
         flex-flow: nowrap;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
+        padding: 0;
+
 
     }
 } 
@@ -95,8 +97,6 @@ padding-top: 0.5rem;
     border-radius: 50%;
     margin: 0 1rem 0 1rem;
     background: $secondary-white;
-
-
 }
 }
 &__search {
@@ -110,9 +110,9 @@ align-items: center;
 
 @include medium {
     width: none;
-    justify-content: flex-end;
     margin: 0 1rem;
-        padding: 0 1rem;
+    padding: 0 1rem;
+    width: 30%;
 
 }
 
