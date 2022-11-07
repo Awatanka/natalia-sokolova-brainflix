@@ -1,0 +1,58 @@
+@use "../src/styles/partials/fonts.scss" as *;
+@use "./styles/partials/breakpoints.scss" as *;
+@use "./styles/partials/colors.scss" as *;
+
+
+html,
+body {
+  margin: 0;
+  font-family: "Avenir", sans-serif;
+  line-height: 1.8rem;
+  height: 100vh;
+  box-sizing: border-box;
+  color: $primary-black;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  
+@include large {
+    flex-direction: row;
+    padding: 0 5rem;
+
+
+  }
+&__left {
+  @include large {
+    display: inline;
+    width: 80%;
+    margin: 0;
+
+}
+
+&__right { 
+
+@include large {
+    display: inline;
+    width: 30%;
+    height: 50vw;
+    margin: 0;
+    overflow: scroll;
+  }
+}
+
+}
+}
+
+
+
+
+
