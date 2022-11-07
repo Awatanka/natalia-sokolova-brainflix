@@ -2,95 +2,120 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/fonts.scss" as *;
 
-.details{
-    padding: 0 1rem ;
+.details {
+    padding: 0 1rem;
 
     @include medium {
-        margin-left: 5rem;
-        margin-right: 5rem;
+        padding: 0 2rem;
+
     }
 
 
-&__info{
-    &-title{
-       font-size: 1.5rem; 
-       font-weight: 700;
-       line-height: 2rem;
-       padding-bottom: $after-headlines-mobile;
-       border-bottom: 1px solid $secondary-silver;
-       margin: 0;
-       padding-top: $before-headlines-mobile;
-    @include medium {
-          font-size: 2.0625rem;
-        padding-top: $before-headlines-desktop;
+
+
+    &__info {
+        &-title {
+            font-size: 1.5rem;
             font-weight: 700;
-            line-height: 2.75rem;
-            border-bottom: none;
-            padding-bottom: $after-headlines-desktop;
-    }
-    }
-}
-
-
-
-
-
-
-&__top {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid $secondary-silver;
-    justify-content: space-between;
-    font-size: .8125rem;
-    line-height: 1.125rem;
-    font-weight: 400;
-
-
-    @include medium {
-        border-bottom: none;
-        font-size: .875rem;
-            line-height: 1.375rem;
+            line-height: 2rem;
+            padding-bottom: $after-headlines-mobile;
             border-bottom: 1px solid $secondary-silver;
+            margin: 0;
+            padding-top: $before-headlines-mobile;
 
-    }
-   
-    &-chanel {
-        font-weight: 900;
-        width: fit-content;
-        display: inline;
-        
-
-    }
-
-    &-date{
-        color: $primary-silver;
             @include medium {
-                    display: inline;
-                    margin-left: 2rem;
-                }
-    }
-
-    &-view{
-        width:25%;
-        padding: 0.25rem;
-        display: inline-block;
-        margin: 0;
-        color: $primary-silver;
-   
-
-    }
-
-    &-right, &-left{
-       display: block;
-       margin: 0;
-    @include medium {
-        display: inline;
-        margin-left: 2rem;
+                font-size: 2.0625rem;
+                padding-top: $before-headlines-desktop;
+                font-weight: 700;
+                line-height: 2.75rem;
+                border-bottom: none;
+                padding-bottom: $after-headlines-desktop;
+            }
         }
     }
-}
-@include medium {
-    padding: 0 2rem;
-}
+
+
+
+
+
+
+    &__top {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid $secondary-silver;
+        justify-content: space-between;
+        font-size: .8125rem;
+        line-height: 1.125rem;
+        font-weight: 400;
+        padding-right: 1rem;
+
+
+
+        @include medium {
+            border-bottom: none;
+            font-size: .875rem;
+            line-height: 1.375rem;
+            border-bottom: 1px solid $secondary-silver;
+            padding-right: 2rem;
+
+        }
+
+        @include large {
+            
+            padding-right: 2rem;
+        }
+
+        &-chanel {
+            font-weight: 900;
+            width: fit-content;
+            display: inline;
+
+
+        }
+
+        &-date {
+            color: $primary-silver;
+
+            @include medium {
+                display: inline;
+                margin-left: 2rem;
+            }
+        }
+
+        &-view {
+            width: 3.125rem;
+            padding: 0.25rem;
+            display: inline-block;
+            margin: 0;
+            color: $primary-silver;
+
+
+        }
+
+        &-right,
+        &-left {
+            display: block;
+            margin: 0;
+
+            @include medium {
+                display: inline;
+                margin-left: 2rem;
+            }
+        }
+    }
+
+    @include medium {
+        padding: 0 0 2rem 2rem;
+    }
+
+    &__bottom {
+        text-align: justify;
+padding-right: 1rem;
+
+
+        @include medium {
+            padding-right: 2rem;
+        }
+    }
 
 }

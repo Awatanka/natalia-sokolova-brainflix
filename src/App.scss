@@ -16,7 +16,7 @@ body {
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 
@@ -24,28 +24,35 @@ body {
   display: flex;
   flex-direction: column;
   
-@include medium {
+@include large {
     flex-direction: row;
+    padding: 0 5rem;
+
 
   }
 &__left {
-  @include medium {
+  @include large {
     display: inline;
     width: 80%;
     margin: 0;
+
 }
 
 &__right { 
-  
-@include medium {
+
+@include large {
     display: inline;
     width: 30%;
+    height: 50vw;
     margin: 0;
+    overflow: scroll;
   }
 }
 
 }
 }
+
+
 
 
 

@@ -17,10 +17,31 @@
     @include medium {
         flex-direction: row;
         padding: 2rem;
-        margin-left: 5rem;
-            margin-right: 5rem;
-            height: 7rem;
+  
+            height: 6rem;
     }
+
+    @include large{
+    padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+
+&__block {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    padding: 1rem;
+
+    @include medium {
+        flex-flow: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0;
+
+
+    }
+} 
 
 &__logo{
     height: 1.5625rem;
@@ -31,7 +52,7 @@
     background: $primary-blue;
     border: none;
     height: 2.5rem;
-    justify-content: flex-start;
+    justify-content: center;
     flex-direction: row;
     align-items: center;
     padding: 1rem;
@@ -42,19 +63,27 @@
         text-decoration: none;
         color: $primary-white;
         width: 100%;
+        position: relative;
     @include medium {
-        width: 8rem;
+        width: 11rem;
+
     }
 
 &-image {
     width: 1.5625rem;
     margin-right: 3rem;
+    position: absolute;
+    left:5px;
+    @include medium {
+        margin-right: 0 ;
+    }
     
 }
 }
 
 &__avatar { 
     position: absolute;
+    right: 1.875rem;
 
 @include medium {
 position:static;
@@ -68,33 +97,25 @@ padding-top: 0.5rem;
     border-radius: 50%;
     margin: 0 1rem 0 1rem;
     background: $secondary-white;
-
-
 }
 }
 &__search {
     width: 100%;
-    position: relative;
+    height: 40px;
     color: $secondary-black;
 display: flex;
 justify-content: flex-start;
 align-items: center;
-padding: 1rem;
-   
 
-&-placeholder{
-    height: 2.5rem;
-    width: 80%;
-    border-radius: .25rem;
-    padding: 0.5rem;
-    background: $secondary-white; 
-    border: 1px solid $secondary-silver;
-    
+
+@include medium {
+    width: none;
+    margin: 0 1rem;
+    padding: 0 1rem;
+    width: 30%;
+
 }
-&-image{
-    position: absolute;
-    left: 0px;
-}
+
 }
 
 &__upload{
@@ -104,7 +125,48 @@ padding: 1rem;
     color: $primary-white;
     display: flex;
     flex-direction: row;
+    margin: 1rem 0;
+    padding: 0 2rem;
 
 
+    @include medium {
+        margin:  0;
+        width: 11rem;
+        padding: 0 2rem;
+    }
+&:hover {
+    background: $secondary-blue;
+
+}
+}
+
+
+
+}
+
+.search {
+  
+&__placeholder {
+    height: 2.5rem;
+    width: 80%;
+    border-radius: .25rem;
+    padding: 0.5rem;
+    position: relative;
+    background: $secondary-white;
+    border: 1px solid $secondary-silver;
+    display: inline-block;
+
+    @include medium {
+width: 15rem;
+
+    }
+
+}
+
+&__image {
+    position: absolute;
+    @include medium {
+        justify-content: flex-end;
+    }
 }
 }

@@ -5,74 +5,95 @@
 
 
 
-.comments{
+.comments {
     color: $primary-black;
     padding: 0 1rem;
     font-weight: 400;
-        font-size: .8125rem;
-        line-height: 1.125rem;
-
-    @include medium {
-            padding: 0 2rem;
-            margin-left: 5rem;
-            margin-right: 5rem;
-            font-size: .875rem;
-            line-height: 1.375rem;
-        }
-
-  &__form {
-
-  width: 100%;
-  
-  &-title{
     font-size: .8125rem;
-        line-height: 1.125rem;
-        font-weight: 700;
+    line-height: 1.125rem;
+
     @include medium {
-    font-size: .875rem;
+        padding: 0 2rem;
+        font-size: .875rem;
         line-height: 1.375rem;
     }
-  }  
-  }
+
+    @include large {
+        padding: 0;
+    }
+
+    &__form {
+
+        width: 100%;
+        @include large {
+                padding-right: 2rem;
+            }
+
+        &-title {
+            font-size: .8125rem;
+            line-height: 1.125rem;
+            font-weight: 700;
+
+            @include medium {
+                font-size: .875rem;
+                line-height: 1.375rem;
+            }
+                         
+        }
+    }
+
     &__item {
         border-bottom: 1px solid $secondary-silver;
         display: flex;
 
+        &-top {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
         &-image {
-                width: 36px;
-                height: 36px;
-                border: 1px solid $secondary-silver;
-                margin-left: 5px;
-                top: 5px;
-                border-radius: 50%;
-                background: $secondary-silver;
-        
-                @include medium {
-                    width: 48px;
-                    height: 48px;
-                }
-        
-        
+            width: 36px;
+            height: 36px;
+            border: 1px solid $secondary-silver;
+            margin-left: 5px;
+            top: 5px;
+            border-radius: 50%;
+            background: $secondary-silver;
+
+            @include medium {
+                width: 48px;
+                height: 48px;
             }
+        }
 
-    
-    &-left {
-        width: 20%;
-        padding: 1rem;
-    }
-    &-right {
-        display: flex;
-        justify-content: center;
-    }
-    
-    &-name, &-date{
-        display: inline-block;
-    }
-    &-text{
-        display: block;
-        width: 100%;
-    }
+        &-left {
+            padding: 1rem;
+        }
 
+        &-right {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-right: 2rem;
+            width: 100%;
+        }
+
+        &-name,
+        &-date {
+            display: inline-block;
+            margin: 1rem 0 0 0;
+        }
+
+
+        &-date {
+            color: $primary-silver;
+        }
+
+        &-text {
+            display: block;
+            width: 100%;
+        }
     }
 }
 
@@ -81,12 +102,15 @@
     display: flex;
     width: 100%;
     font-family: "Avenir";
-    margin: 0 auto;
     justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $secondary-silver;
+    padding-bottom: 1rem;
+
+   
 
     &__left {
-        width: 20%;
-        display: inline-block;
+        display: flex;
         padding: 1rem;
 
     }
@@ -98,9 +122,9 @@
         flex-direction: column;
 
         @include medium {
-           flex-direction: row;
-           align-items: center;
-           flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
 
         }
     }
@@ -124,69 +148,67 @@
         font-weight: 600;
         line-height: 1.5;
         width: 100%;
+        display: inline;
         text-transform: uppercase;
         color: $primary-silver;
-        padding-bottom: $after-headlines-mobile;
 
 
         @include medium {
-            font-size: 1.5rem;
+            font-size: .875rem;
             line-height: 2rem;
-            padding-bottom: $after-headlines-desktop;
         }
     }
 
 
     &__textarea {
-    width: 100%;
-    height: 10rem;
-
-    @include medium {
-        height: 3.75rem;
-            width: 70%;
-
-    }
-
-    &--item {
-        height: 10rem;
-        box-shadow: none;
         width: 100%;
-        border-radius: 5px;
-        border: 1px solid $secondary-silver;
-        font-family: "Avenir";
-        background: $secondary-white;
-        color: $secondary-black;
-        font-weight: 400;
+        height: 10rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        @include medium {
+            height: 3.75rem;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+
+        }
+
+        &-item {
+            height: 10rem;
+            box-shadow: none;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid $secondary-silver;
+            font-family: "Avenir";
+            background: $secondary-white;
+            color: $secondary-black;
+            font-weight: 400;
             font-size: .8125rem;
             line-height: 1.125rem;
             padding: 1rem;
+            margin-bottom: 1rem;
 
-@include medium {
-    padding: 0.5rem;
-    width: 95%;
-height: 40px;
-display: inline;
-}
-    }
-    &--item:focus {
-        border: 2px solid $secondary-blue;
-    }
-}
-    &__button {
-        height: 4.375rem;
-        margin: 0.5rem 0 0.5rem 0;
-        height: 60px;
-
-        @include medium {
-align-items: center;
+            @include medium {
+                padding: 0.5rem;
+                height: 40px;
+                margin: 0 3rem 0 0;
+            }
         }
-        
+
+        &-item:focus {
+            border: 2px solid $secondary-blue;
+        }
     }
 
-    &__button--btn {
+
+    &__button {
+    
+    &-btn {
         height: 2.5rem;
         width: 100%;
-        display: block;
         border-radius: .3125rem;
         font-family: "Avenir";
         font-weight: 700;
@@ -199,15 +221,36 @@ align-items: center;
         align-items: center;
         cursor: pointer;
         height: 2.5rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8.5rem;
+        padding: 1rem;
+        position: relative;
+        justify-content: center;
 
         @include medium {
-            font-size: 1rem;
+            font-size: .875rem;
             line-height: 1.25rem;
-            width: 150px;
+            width: 11rem;
+            gap: 1rem;
+            padding: 0 2rem;
+            justify-content: center;
         }
+
 
     }
 
-  
+    &-btn:hover {
+        background: $secondary-blue;
+
+    }
+
+    &-img {
+        position: absolute;
+        left: 5px;
+
+    }
+}
 
 }
