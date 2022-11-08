@@ -6,14 +6,13 @@ export default function SideBar({ videos, onVideoClick }) {
     <aside className="sidebar">
       <h3 className="sidebar-header"> NEXT VIDEO</h3>
       {videos.map((video) => (
-        <div>
+        <div key={video.id}>
           <div className="sidebar-content">
             <div className="sidebar-content__left">
               <img
                 className="sidebar-content__left-video"
                 src={video.image}
                 alt={video.name}
-                key={video.id}
                 onClick={(event) => onVideoClick(event, video.id)}
               />
             </div>
