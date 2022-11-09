@@ -3,6 +3,7 @@ import Logo from "../../assets/images/Logo/BrainFlix-logo.svg";
 import Upload from "../../assets/images/Icons/upload.svg";
 import Search from "../../assets/images/Icons/search.svg";
 import Avatar from "../../assets/images/Mohan-muruge.jpg";
+// import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -10,6 +11,7 @@ export default function Header() {
       <div className="header__logo">
         <img src={Logo} alt="Logo" />
       </div>
+
       <div className="header__block">
         <div className="header__search">
           <input placeholder="     Search" className="search__placeholder" />
