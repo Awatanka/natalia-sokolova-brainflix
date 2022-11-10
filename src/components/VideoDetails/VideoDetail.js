@@ -7,6 +7,7 @@ import axios from "axios";
 
 import SideBar from "../sideBar/Sidebar";
 import Comments from "../Comments/Comments";
+import Description from "../description/Description";
 // import VideoBanner from "../VideoBanner/VideoBanner";
 
 const URL = `https://project-2-api.herokuapp.com/videos/`;
@@ -17,30 +18,36 @@ export default function VideoDetails(/*{ videoPlayer  }*/) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState();
 
-  const { videoId = "84e96018-4022-434e-80bf-000ce4cd12b8" } = useParams();
+  const params = useParams();
 
   useEffect(() => {
     axios
       .get(URL + API_KEY)
       .then((response) => {
-        // console.log(response);
-        // console.log(response.data);
-        setVideos(response.data); // set state with jokes data
-      })
-      .catch((error) => console.log(error));
-  }, []);
+        const videoId = params.videoId ? params.videoId : response.data[0].id;
 
-  useEffect(() => {
-    if (videoId) {
-      axios
-        .get(URL + videoId + "/" + API_KEY)
-        .then((response) => {
-          //   console.log(response);
+        setVideos(response.data.filter((video) => video.id !== videoId));
+        axios.get(URL + videoId + API_KEY).then((response) => {
           setSelectedVideo(response.data);
-        })
-        .catch((error) => console.log(error));
-    }
-  }, [videoId]);
+        });
+      })
+      // .then((videoId) => {
+
+      // })
+      .catch((error) => console.log(error));
+  }, [params]);
+
+  // useEffect(() => {
+  //   if (videoId) {
+  //     axios
+  //       .get(URL + videoId + API_KEY)
+  //       .then((response) => {
+  //         //   console.log(response);
+  //         setSelectedVideo(response.data);
+  //       })
+  //       .catch((error) => console.log(error));
+  //   }
+  // }, [videoId]);
 
   // const {
   //   id,
@@ -65,25 +72,28 @@ export default function VideoDetails(/*{ videoPlayer  }*/) {
   return (
     <>
       {selectedVideo && (
-        <div className="videoBanner">
-          <video
-            controls
-            className="videoBanner__video"
-            poster={selectedVideo.image}
-          >
-            <source src="#" type="video/mp4" />
-          </video>
-        </div>
-      )}
+        <>
+          <div className="videoBanner">
+            <video
+              controls
+              className="videoBanner__video"
+              poster={selectedVideo.image}
+            >
+              <source src="#" type="video/mp4" />
+            </video>
+          </div>
 
-      <section className="main">
-        <section className="main__left">
-          <Comments comments={selectedVideo.comments} />
-        </section>
-        <section className="main__right">
-          <SideBar videos={videos} />
-        </section>
-      </section>
+          <section className="main">
+            <section className="main__left">
+              <Description videoPlayer={selectedVideo} />
+              <Comments comments={selectedVideo.comments} />
+            </section>
+            <section className="main__right">
+              <SideBar videos={videos} />
+            </section>
+          </section>
+        </>
+      )}
 
       {/* <main className="details">
         <section className="details__info">

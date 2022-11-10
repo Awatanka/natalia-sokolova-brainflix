@@ -5,6 +5,12 @@
 .sidebar{
 padding: 0 1rem; 
 
+
+a {
+    color: $primary-black;
+    text-decoration: none;
+}
+
 @include large {
     border-left: 1px solid $secondary-silver;
 
