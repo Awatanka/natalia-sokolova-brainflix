@@ -85,7 +85,6 @@
         @include large {
             display: flex;
             flex-direction: row;
-            border-top: 1px solid $secondary-silver;
             border-bottom: 1px solid $secondary-silver;
             padding-top: $before-headlines-desktop;
             padding-bottom: $after-headlines-desktop;
