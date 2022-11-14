@@ -8,9 +8,9 @@ import Comments from "../Comments/Comments";
 import Description from "../description/Description";
 
 const URL = `https://project-2-api.herokuapp.com/videos/`;
-const API_KEY = `?api_key=${process.env.REACT_APP_VIDEO_API_KEY}`;
+const API_KEY = `?api_key=70453c80-7523-4f69-a815-ba520ea2f155`;
 
-export default function VideoDetails(/*{ videoPlayer  }*/) {
+export default function VideoDetails() {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState();
 
