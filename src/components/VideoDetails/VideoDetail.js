@@ -1,8 +1,6 @@
 import "./videoDetails.scss";
-import iconView from "../../assets/images/Icons/views.svg";
-import Like from "../../assets/images/Icons/likes.svg";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import SideBar from "../sideBar/Sidebar";
@@ -11,12 +9,13 @@ import Description from "../description/Description";
 // import VideoBanner from "../VideoBanner/VideoBanner";
 
 const URL = `https://project-2-api.herokuapp.com/videos/`;
-const API_KEY = `?api_key=${process.env.REACT_APP_VIDEO_API_KEY}`;
+const API_KEY = `?api_key=70453c80-7523-4f69-a815-ba520ea2f155`;
 // const getVideoID = (videoId) => `${URL}&i=${videoId}`;
 
 export default function VideoDetails(/*{ videoPlayer  }*/) {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState();
+  // const [mainVideo, setMainVideo] = useState([0]);
 
   const params = useParams();
 
@@ -29,45 +28,20 @@ export default function VideoDetails(/*{ videoPlayer  }*/) {
         setVideos(response.data.filter((video) => video.id !== videoId));
         axios.get(URL + videoId + API_KEY).then((response) => {
           setSelectedVideo(response.data);
+          // setMainVideo(response.data[0]);
         });
+
+        // setVideos(response.data.filter((video) => video.id === videoId));
+        // axios.get(URL + videoId + API_KEY).then((response) => {
+        //   setMainVideo(response.data);
+        //   console.log(response.data);
+        // });
       })
       // .then((videoId) => {
 
       // })
       .catch((error) => console.log(error));
   }, [params]);
-
-  // useEffect(() => {
-  //   if (videoId) {
-  //     axios
-  //       .get(URL + videoId + API_KEY)
-  //       .then((response) => {
-  //         //   console.log(response);
-  //         setSelectedVideo(response.data);
-  //       })
-  //       .catch((error) => console.log(error));
-  //   }
-  // }, [videoId]);
-
-  // const {
-  //   id,
-  //   title,
-  //   channel,
-  //   image,
-  //   description,
-  //   views,
-  //   likes,
-  //   duration,
-  //   video,
-  //   timestamp,
-  //   comments,
-  //   ...rest
-  // } = videoPlayer;
-
-  // function convertData(myDate) {
-  //   let date = new Date(myDate).toLocaleDateString("en-GB");
-  //   return date;
-  // }
 
   return (
     <>
@@ -86,7 +60,10 @@ export default function VideoDetails(/*{ videoPlayer  }*/) {
           <section className="main">
             <section className="main__left">
               <Description videoPlayer={selectedVideo} />
-              <Comments comments={selectedVideo.comments} />
+              <Comments
+                comments={selectedVideo.comments}
+                selectedVideoId={selectedVideo.id}
+              />
             </section>
             <section className="main__right">
               <SideBar videos={videos} />
@@ -95,43 +72,28 @@ export default function VideoDetails(/*{ videoPlayer  }*/) {
         </>
       )}
 
-      {/* <main className="details">
-        <section className="details__info">
-          <p className="details__info-title"> {videos.title}</p>
-          <section className="details__top">
-            <div>
-              <p className="details__top-chanel"> {videos.channel}</p>
-              <p className="details__top-date">
-                {convertData(videos.timestamp)}
-              </p>
-            </div>
-
-            <div>
-              <span
-                role="img"
-                aria-label="view icon"
-                className="details__top-right"
-              >
-                <img src={iconView}></img>
-                <p className="details__top-view"> {videos.views}</p>
-              </span>
-
-              <span
-                role="img"
-                aria-label="heart icon"
-                className="details__top-left"
-              >
-                <img src={Like}></img>
-                <p className="details__top-view">{videos.likes} </p>
-              </span>
-            </div>
+      {/* {
+        <>
+          <div className="videoBanner">
+            <video
+              controls
+              className="videoBanner__video"
+              poster={mainVideo.image}
+            >
+              <source src="#" type="video/mp4" />
+            </video>
+          </div>
+          <section className="main">
+            <section className="main__left">
+              <Description videoPlayer={mainVideo} />
+              <Comments comments={mainVideo.comments} />
+            </section>
+            <section className="main__right">
+              <SideBar videos={videos} />
+            </section>
           </section>
-
-          <section className="details__bottom">
-            <p className="details__bottom-description"> {videos.description}</p>
-          </section>
-        </section>
-      </main> */}
+        </>
+      } */}
     </>
   );
 }

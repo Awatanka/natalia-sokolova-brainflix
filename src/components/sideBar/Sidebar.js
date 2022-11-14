@@ -8,7 +8,7 @@ export default function SideBar({ videos }) {
     <aside className="sidebar">
       <h3 className="sidebar-header"> NEXT VIDEO</h3>
       {videos.map((video) => (
-        <Link to={`/videos/${video.id}`}>
+        <Link to={`/videos/${video.id}`} key={video.id}>
           <div className="sidebar-content" key={video.id}>
             <div className="sidebar-content__left">
               <img
