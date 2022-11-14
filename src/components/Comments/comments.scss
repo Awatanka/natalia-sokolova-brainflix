@@ -1,4 +1,3 @@
-// @use "../../styles/breakpoints.scss" as *;
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/fonts" as *;
 @use "../../styles/partials/breakpoints.scss" as *;
@@ -25,9 +24,10 @@
     &__form {
 
         width: 100%;
+
         @include large {
-                padding-right: 2rem;
-            }
+            padding-right: 2rem;
+        }
 
         &-title {
             font-size: .8125rem;
@@ -38,7 +38,7 @@
                 font-size: .875rem;
                 line-height: 1.375rem;
             }
-                         
+
         }
     }
 
@@ -127,7 +127,7 @@
     border-bottom: 1px solid $secondary-silver;
     padding-bottom: 1rem;
 
-   
+
 
     &__left {
         display: flex;
@@ -225,51 +225,51 @@
 
 
     &__button {
-    
-    &-btn {
-        height: 3rem;
-        width: 100%;
-        border-radius: .3125rem;
-        font-family: "Avenir";
-        font-weight: 700;
-        font-size: .625rem;
-        line-height: 1.25rem;
-        border: none;
-        color: $primary-white;
-        font-size: 1rem;
-        background: $primary-blue;
-        align-items: center;
-        cursor: pointer;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 8.5rem;
-        padding: 1rem;
-        position: relative;
-        justify-content: center;
 
-        @include medium {
-            font-size: .875rem;
+        &-btn {
+            height: 3rem;
+            width: 100%;
+            border-radius: .3125rem;
+            font-family: "Avenir";
+            font-weight: 700;
+            font-size: .625rem;
             line-height: 1.25rem;
-            width: 11rem;
-            gap: 1rem;
-            padding: 0 2rem;
+            border: none;
+            color: $primary-white;
+            font-size: 1rem;
+            background: $primary-blue;
+            align-items: center;
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8.5rem;
+            padding: 1rem;
+            position: relative;
             justify-content: center;
+
+            @include medium {
+                font-size: .875rem;
+                line-height: 1.25rem;
+                width: 11rem;
+                gap: 1rem;
+                padding: 0 2rem;
+                justify-content: center;
+            }
+
+
         }
 
+        &-btn:hover {
+            background: $secondary-blue;
 
+        }
+
+        &-img {
+            position: absolute;
+            left: 5px;
+
+        }
     }
-
-    &-btn:hover {
-        background: $secondary-blue;
-
-    }
-
-    &-img {
-        position: absolute;
-        left: 5px;
-
-    }
-}
 
 }
