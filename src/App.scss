@@ -19,40 +19,8 @@ body {
   box-sizing: border-box;
 }
 
-
-.main {
-  display: flex;
-  flex-direction: column;
-  
-@include large {
-    flex-direction: row;
-    padding: 0 5rem;
-
-
-  }
-&__left {
-  @include large {
-    display: inline;
-    width: 80%;
-    margin: 0;
-
+textarea {
+  resize: none;
 }
-
-&__right { 
-
-@include large {
-    display: inline;
-    width: 30%;
-    height: 50vw;
-    margin: 0;
-    overflow: scroll;
-  }
-}
-
-}
-}
-
-
-
 
 

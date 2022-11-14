@@ -1,20 +1,20 @@
-import { startTransition } from "react";
 import "./sideBar.scss";
+// import axios from "axios";
+// import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-export default function SideBar({ videos, onVideoClick }) {
+export default function SideBar({ videos }) {
   return (
     <aside className="sidebar">
       <h3 className="sidebar-header"> NEXT VIDEO</h3>
       {videos.map((video) => (
-        <div>
-          <div className="sidebar-content">
+        <Link to={`/videos/${video.id}`} key={video.id}>
+          <div className="sidebar-content" key={video.id}>
             <div className="sidebar-content__left">
               <img
                 className="sidebar-content__left-video"
                 src={video.image}
                 alt={video.name}
-                key={video.id}
-                onClick={(event) => onVideoClick(event, video.id)}
               />
             </div>
             <div className="sidebar-content__right">
@@ -22,7 +22,7 @@ export default function SideBar({ videos, onVideoClick }) {
               <p className="sidebar-content__right-text"> {video.channel}</p>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </aside>
   );

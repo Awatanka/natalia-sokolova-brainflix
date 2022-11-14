@@ -1,63 +1,99 @@
 import "./videoDetails.scss";
-import iconView from "../../assets/images/Icons/views.svg";
-import Like from "../../assets/images/Icons/likes.svg";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-export default function VideoDetails({ videoPlayer }) {
-  const {
-    id,
-    title,
-    channel,
-    image,
-    description,
-    views,
-    likes,
-    duration,
-    video,
-    timestamp,
-    comments,
-    ...rest
-  } = videoPlayer;
+import SideBar from "../sideBar/Sidebar";
+import Comments from "../Comments/Comments";
+import Description from "../description/Description";
+// import VideoBanner from "../VideoBanner/VideoBanner";
 
-  function convertData(myDate) {
-    let date = new Date(myDate).toLocaleDateString("en-GB");
-    return date;
-  }
+const URL = `https://project-2-api.herokuapp.com/videos/`;
+const API_KEY = `?api_key=70453c80-7523-4f69-a815-ba520ea2f155`;
+// const getVideoID = (videoId) => `${URL}&i=${videoId}`;
+
+export default function VideoDetails(/*{ videoPlayer  }*/) {
+  const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState();
+  // const [mainVideo, setMainVideo] = useState([0]);
+
+  const params = useParams();
+
+  useEffect(() => {
+    axios
+      .get(URL + API_KEY)
+      .then((response) => {
+        const videoId = params.videoId ? params.videoId : response.data[0].id;
+
+        setVideos(response.data.filter((video) => video.id !== videoId));
+        axios.get(URL + videoId + API_KEY).then((response) => {
+          setSelectedVideo(response.data);
+          // setMainVideo(response.data[0]);
+        });
+
+        // setVideos(response.data.filter((video) => video.id === videoId));
+        // axios.get(URL + videoId + API_KEY).then((response) => {
+        //   setMainVideo(response.data);
+        //   console.log(response.data);
+        // });
+      })
+      // .then((videoId) => {
+
+      // })
+      .catch((error) => console.log(error));
+  }, [params]);
 
   return (
-    <main className="details">
-      <section className="details__info">
-        <p className="details__info-title"> {title}</p>
-        <section className="details__top">
-          <div>
-            <p className="details__top-chanel"> {channel}</p>
-            <p className="details__top-date">{convertData(timestamp)}</p>
+    <>
+      {selectedVideo && (
+        <>
+          <div className="videoBanner">
+            <video
+              controls
+              className="videoBanner__video"
+              poster={selectedVideo.image}
+            >
+              <source src="#" type="video/mp4" />
+            </video>
           </div>
 
-          <div>
-            <span
-              role="img"
-              aria-label="view icon"
-              className="details__top-right"
-            >
-              <img src={iconView}></img>
-              <p className="details__top-view"> {views}</p>
-            </span>
+          <section className="main">
+            <section className="main__left">
+              <Description videoPlayer={selectedVideo} />
+              <Comments
+                comments={selectedVideo.comments}
+                selectedVideoId={selectedVideo.id}
+              />
+            </section>
+            <section className="main__right">
+              <SideBar videos={videos} />
+            </section>
+          </section>
+        </>
+      )}
 
-            <span
-              role="img"
-              aria-label="heart icon"
-              className="details__top-left"
+      {/* {
+        <>
+          <div className="videoBanner">
+            <video
+              controls
+              className="videoBanner__video"
+              poster={mainVideo.image}
             >
-              <img src={Like}></img>
-              <p className="details__top-view">{likes} </p>
-            </span>
+              <source src="#" type="video/mp4" />
+            </video>
           </div>
-        </section>
-
-        <section className="details__bottom">
-          <p className="details__bottom-description"> {description}</p>
-        </section>
-      </section>
-    </main>
+          <section className="main">
+            <section className="main__left">
+              <Description videoPlayer={mainVideo} />
+              <Comments comments={mainVideo.comments} />
+            </section>
+            <section className="main__right">
+              <SideBar videos={videos} />
+            </section>
+          </section>
+        </>
+      } */}
+    </>
   );
 }
