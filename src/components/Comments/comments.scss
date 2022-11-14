@@ -46,10 +46,30 @@
         border-bottom: 1px solid $secondary-silver;
         display: flex;
 
+        &-button {
+            width: 6.25rem;
+            right: 0;
+            display: flex;
+            align-items: center;
+            border: none;
+            color: $primary-silver;
+            background: $primary-white;
+            justify-content: center;
+        }
+
+        &-icon {
+            width: 1.25rem;
+        }
+
         &-top {
             display: flex;
             justify-content: space-between;
             width: 100%;
+        }
+
+        &-bottom {
+            display: flex;
+
         }
 
         &-image {
@@ -193,7 +213,7 @@
 
             @include medium {
                 padding: 0.5rem;
-                height: 40px;
+                height: 3rem;
                 margin: 0 3rem 0 0;
             }
         }
@@ -207,7 +227,7 @@
     &__button {
     
     &-btn {
-        height: 2.5rem;
+        height: 3rem;
         width: 100%;
         border-radius: .3125rem;
         font-family: "Avenir";
@@ -220,7 +240,6 @@
         background: $primary-blue;
         align-items: center;
         cursor: pointer;
-        height: 2.5rem;
         display: flex;
         flex-direction: row;
         align-items: center;
