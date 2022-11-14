@@ -2,12 +2,10 @@ import "./page.scss";
 import PageVideo from "../assets/images/Upload-video-preview.jpg";
 import Publish from "../assets/images/Icons/publish.svg";
 
-// import { ToastContainer, toast } from "react-toastify";
 import Toastify from "toastify-js";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useParams } from "react-router-dom";
 
 export default function Page() {
   let navigate = useNavigate();
@@ -96,7 +94,6 @@ export default function Page() {
               value={title}
               onChange={handleChangeTitle}
             ></input>
-            {/* {!isTitleValid() && <p>Please, enter your title.</p>} */}
 
             <label htmlFor="userDescription" className="form-upload__label">
               ADD A VIDEO DESCRIPTION
@@ -142,7 +139,6 @@ export default function Page() {
           </Link>
         </div>
       </form>
-      {/* </div> */}
     </section>
   );
 }
