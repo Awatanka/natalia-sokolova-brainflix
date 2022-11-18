@@ -7,8 +7,8 @@ import SideBar from "../sideBar/Sidebar";
 import Comments from "../Comments/Comments";
 import Description from "../description/Description";
 
-const URL = `https://project-2-api.herokuapp.com/videos/`;
-const API_KEY = `?api_key=70453c80-7523-4f69-a815-ba520ea2f155`;
+const URL = `http://localhost:8080/api/videos/`;
+// const API_KEY = `?api_key=70453c80-7523-4f69-a815-ba520ea2f155`;
 
 export default function VideoDetails() {
   const [videos, setVideos] = useState([]);
@@ -18,12 +18,14 @@ export default function VideoDetails() {
 
   useEffect(() => {
     axios
-      .get(URL + API_KEY)
+      // .get(URL + API_KEY)
+      .get(URL)
       .then((response) => {
         const videoId = params.videoId ? params.videoId : response.data[0].id;
 
         setVideos(response.data.filter((video) => video.id !== videoId));
-        axios.get(URL + videoId + API_KEY).then((response) => {
+        // axios.get(URL + videoId + API_KEY).then((response) => {
+        axios.get(URL + videoId).then((response) => {
           setSelectedVideo(response.data);
         });
       })
