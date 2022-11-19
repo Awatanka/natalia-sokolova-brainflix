@@ -1,4 +1,4 @@
-import "./page.scss";
+import "./upload.scss";
 import Publish from "../assets/images/Icons/publish.svg";
 import axios from "axios";
 
