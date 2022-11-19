@@ -1,6 +1,6 @@
 import "./page.scss";
-import PageVideo from "../assets/images/Upload-video-preview.jpg";
 import Publish from "../assets/images/Icons/publish.svg";
+import axios from "axios";
 
 import Toastify from "toastify-js";
 import { Link } from "react-router-dom";
@@ -15,6 +15,7 @@ export default function Page() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const URL = `http://localhost:8080/api/videos`;
 
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
@@ -45,7 +46,16 @@ export default function Page() {
         className: "infoUpload",
         onClick: function () {},
       }).showToast();
-      handleClickUpload();
+
+      axios
+        .post(URL, {
+          title: title,
+          image: "http://localhost:8080/images/image.jpg",
+          description: description,
+        })
+        .then((response) => {
+          handleClickUpload();
+        });
     } else {
       Toastify({
         text: "Failed to submit, you have empty field in your form",
@@ -58,14 +68,6 @@ export default function Page() {
         onClick: function () {},
       }).showToast();
     }
-    // axios
-    //   .post(URL, {
-    //     title: title,
-    //     description: description,
-    //   })
-    //   .then((response) => {
-    //     updatedVideo(selectedVideoId);
-    //   });
   };
 
   return (
@@ -84,7 +86,7 @@ export default function Page() {
             <p className="publishPage__content"> VIDEO THUMBNAIL</p>
             <img
               alt="road"
-              src={PageVideo}
+              src="http://localhost:8080/images/image.jpg"
               className="publishPage__form-image"
             />
           </div>
