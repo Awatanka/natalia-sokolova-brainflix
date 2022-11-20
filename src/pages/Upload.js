@@ -1,13 +1,11 @@
-import "./page.scss";
-import PageVideo from "../assets/images/Upload-video-preview.jpg";
+import "./upload.scss";
 import Publish from "../assets/images/Icons/publish.svg";
+import axios from "axios";
 
-// import { ToastContainer, toast } from "react-toastify";
 import Toastify from "toastify-js";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useParams } from "react-router-dom";
 
 export default function Page() {
   let navigate = useNavigate();
@@ -17,6 +15,7 @@ export default function Page() {
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const URL = `http://localhost:8080/api/videos`;
 
   const handleChangeTitle = (event) => {
     setTitle(event.target.value);
@@ -47,7 +46,16 @@ export default function Page() {
         className: "infoUpload",
         onClick: function () {},
       }).showToast();
-      handleClickUpload();
+
+      axios
+        .post(URL, {
+          title: title,
+          image: "http://localhost:8080/images/image.jpg",
+          description: description,
+        })
+        .then((response) => {
+          handleClickUpload();
+        });
     } else {
       Toastify({
         text: "Failed to submit, you have empty field in your form",
@@ -78,7 +86,7 @@ export default function Page() {
             <p className="publishPage__content"> VIDEO THUMBNAIL</p>
             <img
               alt="road"
-              src={PageVideo}
+              src="http://localhost:8080/images/image.jpg"
               className="publishPage__form-image"
             />
           </div>
@@ -96,7 +104,6 @@ export default function Page() {
               value={title}
               onChange={handleChangeTitle}
             ></input>
-            {/* {!isTitleValid() && <p>Please, enter your title.</p>} */}
 
             <label htmlFor="userDescription" className="form-upload__label">
               ADD A VIDEO DESCRIPTION
@@ -142,7 +149,6 @@ export default function Page() {
           </Link>
         </div>
       </form>
-      {/* </div> */}
     </section>
   );
 }

@@ -1,6 +1,3 @@
-import "./videoBanner.scss";
-import PlayButton from "../../assets/images/Icons/play.svg";
-
 function VideoBanner({ videoPoster }) {
   return (
     <>
