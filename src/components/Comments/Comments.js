@@ -6,8 +6,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BsFillArchiveFill } from "react-icons/bs";
 
-const URL = `https://project-2-api.herokuapp.com/videos/`;
-const API_KEY = `?api_key=70453c80-7523-4f69-a815-ba520ea2f155`;
+const URL = `http://localhost:8080/api/videos/`;
+// const API_KEY = `?api_key=70453c80-7523-4f69-a815-ba520ea2f155`;
 
 export default function Comments({ comments, selectedVideoId }) {
   function convertData(myDate) {
@@ -22,25 +22,26 @@ export default function Comments({ comments, selectedVideoId }) {
 
   const [userComment, setUserComment] = useState("");
 
-  const handleChangeComment = (event) => {
-    setUserComment(event.target.value);
-  };
+  // const handleChangeComment = (event) => {
+  //   setUserComment(event.target.value);
+  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(URL + selectedVideoId + "/comments" + API_KEY, {
+      .post(URL + selectedVideoId + "/comments", {
         name: "testUser",
         comment: userComment,
       })
       .then((response) => {
         updatedComments(selectedVideoId);
       });
+    setUserComment("");
   };
 
   const handleDelete = ({ currentTarget }) => {
     let deleteComment =
-      URL + selectedVideoId + "/comments/" + currentTarget.value + API_KEY;
+      URL + selectedVideoId + "/comments/" + currentTarget.value;
     axios.delete(deleteComment).then(() => {
       updatedComments(selectedVideoId);
     });
@@ -68,7 +69,7 @@ export default function Comments({ comments, selectedVideoId }) {
                 type="text"
                 className="form__textarea-item"
                 placeholder="Add a new comment"
-                onChange={handleChangeComment}
+                onChange={(event) => setUserComment(event.target.value)}
               ></textarea>
 
               <button
