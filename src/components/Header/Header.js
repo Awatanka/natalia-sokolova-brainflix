@@ -1,13 +1,11 @@
 import "./Header.scss";
 import Logo from "../../assets/images/Logo/BrainFlix-logo.svg";
 import Upload from "../../assets/images/Icons/upload.svg";
-import Search from "../../assets/images/Icons/search.svg";
 import Avatar from "../../assets/images/Mohan-muruge.jpg";
 import { Link } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 
 export default function Header() {
-  // const icon = <BsSearch />;
   return (
     <header className="header">
       <Link to={`/home`}>
@@ -18,7 +16,6 @@ export default function Header() {
       <div className="header__block">
         <div className="header__search">
           <input placeholder="    Search" className="search__placeholder" />
-          {/* <img src={Search} alt="Search" className="search__image" /> */}
           <BsSearch className="search__image" size={20} />
         </div>
         <Link to={`/upload`} className="header__upload">

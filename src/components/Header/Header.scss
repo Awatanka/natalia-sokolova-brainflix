@@ -63,16 +63,24 @@ a {
         padding: 1rem;
         width: 100%;
         position: relative;
+        cursor: pointer;
+
+        &:hover {
+                background: $secondary-blue;
+        
+            }
+        
 
         &-btn {
             text-decoration: none;
             color: $primary-white;
-            background: $primary-blue;
+            background: inherit;
             font-size: .75rem;
             line-height: 2rem;
             text-transform: uppercase;
             font-weight: 700;
             border: none;
+            cursor: pointer;
         }
 
         @include medium {
@@ -152,20 +160,14 @@ a {
             padding: 0 2rem;
         }
 
-        &:hover {
-                    background: $secondary-blue;
-        
-                }
-
-        &-btn:hover {
-            background: $secondary-blue;
-
-        }
+       
     }
 
 
 
 }
+
+
 
 .search {
 
