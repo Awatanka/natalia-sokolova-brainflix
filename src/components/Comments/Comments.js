@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { BsFillArchiveFill } from "react-icons/bs";
 
 const URL = `http://localhost:8080/api/videos/`;
-// const API_KEY = `?api_key=70453c80-7523-4f69-a815-ba520ea2f155`;
 
 export default function Comments({ comments, selectedVideoId }) {
   function convertData(myDate) {
@@ -21,10 +20,6 @@ export default function Comments({ comments, selectedVideoId }) {
   };
 
   const [userComment, setUserComment] = useState("");
-
-  // const handleChangeComment = (event) => {
-  //   setUserComment(event.target.value);
-  // };
 
   const handleSubmit = (event) => {
     event.preventDefault();
