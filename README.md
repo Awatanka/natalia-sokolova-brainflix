@@ -1,4 +1,4 @@
-BrainFlix
+<h3> BrainFlix </h3>
 
 BrainFlix is a fullstack app for a fictional mock video streaming platform. 
 
