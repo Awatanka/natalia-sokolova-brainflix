@@ -15,9 +15,9 @@ A JSON file was used for data persistence (writing to it, and reading from it)
 HTML, SASS, JavaScript, React, React Router, Node, Express, API's , Postman and Axios, Upload.io
 <hr/>
 Installation:
-To install and run the project you will need to clone or dowload the Front-end file and the Backend file - jaqueline-nacarate-brainflix-api;
-Run nmp i to install all the required node modules for the app;
-You can first start server part, the start client part.
+1) To install and run the project you will need to clone or dowload the client and server parts;<br/>
+2) Run nmp i to install all the required node modules for the app;<br/>
+3) You can first start server part, the start client part.<br/>
 <hr/>
 Environment Variables
 Frontend:
