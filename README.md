@@ -1,8 +1,10 @@
 <h3> BrainFlix </h3>
 
 BrainFlix is a fullstack app for a fictional mock video streaming platform. 
+<hr/>
 
-General Functionalities
+<h5>General Functionalities</h5>
+<hr/>
 
 An REST API service was built to manage the videos data. It had the following end-points:
 GET /videos that responds with an array of videos;
@@ -10,7 +12,8 @@ GET /videos/:id that responds with an object containing the details of the video
 POST /videos that will add a new video to the video list with a unique id generated for each video added;
 A JSON file was used for data persistence (writing to it, and reading from it)
 
-Tech Stack
+<h5>Tech Stack</h5>
+<hr/>
 HTML, SASS, JavaScript, React, React Router, Node, Express, API's , Postman and Axios, Upload.io
 
 Installation:
