@@ -14,17 +14,17 @@ A JSON file was used for data persistence (writing to it, and reading from it)
 <h5>Tech Stack</h5>
 HTML, SASS, JavaScript, React, React Router, Node, Express, API's , Postman and Axios, Upload.io
 <hr/>
-Installation:
+Installation:<br/>
 1) To install and run the project you will need to clone or dowload the client and server parts;<br/>
 2) Run nmp i to install all the required node modules for the app;<br/>
 3) You can first start server part, the start client part.<br/>
 <hr/>
-Environment Variables
-Frontend:
-Add the following variables in .env file:
-REACT_APP_API_URL=https://localhost:8080
+<h5> Environment Variables</h5> <br/>
+Frontend:<br/>
+Add the following variables in .env file:<br/>
+REACT_APP_API_URL=https://localhost:8080<br/>
 
-Backend:
-Add the following variables in .env file:
-PORT = 8080
+Backend:<br/>
+Add the following variables in .env file:<br/>
+PORT = 8080<br/>
 
